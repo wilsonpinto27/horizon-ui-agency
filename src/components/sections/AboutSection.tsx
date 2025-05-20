@@ -28,7 +28,7 @@ const AboutSection = () => {
       id: 3,
       icon: <Settings className="h-10 w-10 text-blue-600" />,
       title: 'Innovative Approach',
-      description: 'We combine creativity with technical expertise to deliver solutions that not only meet but exceed our clients' expectations.',
+      description: "We combine creativity with technical expertise to deliver solutions that not only meet but exceed our clients' expectations.",
     },
   ];
 
