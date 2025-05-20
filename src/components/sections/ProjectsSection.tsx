@@ -1,11 +1,12 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
 
 const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -181,50 +182,114 @@ const ProjectsSection = () => {
         </div>
       </div>
 
-      {/* Project Details Dialog */}
+      {/* Enhanced Project Details Dialog */}
       {selectedProject && (
         <Dialog open={selectedProject !== null} onOpenChange={closeProjectDetails}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle className="text-2xl font-display">{selectedProject.title}</DialogTitle>
-              <DialogDescription className="text-blue-600">{selectedProject.category}</DialogDescription>
-            </DialogHeader>
-            
-            <div className="mt-4">
+          <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto p-0">
+            {/* Hero Banner */}
+            <div className="relative w-full h-64 bg-gradient-to-r from-blue-600/90 to-purple-600/90 overflow-hidden">
               <img 
                 src={selectedProject.image} 
                 alt={selectedProject.title}
-                className="w-full h-64 object-cover rounded-lg mb-6 shadow-md"
+                className="w-full h-full object-cover mix-blend-overlay opacity-60"
               />
-              
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 font-display">Overview</h3>
-                  <p className="text-gray-700">{selectedProject.fullDescription}</p>
+              <div className="absolute inset-0 flex items-center">
+                <div className="container mx-auto px-8">
+                  <Badge className="mb-3 bg-blue-700 hover:bg-blue-800">
+                    {selectedProject.category}
+                  </Badge>
+                  <h1 className="text-3xl md:text-4xl font-bold text-white font-display mb-2">
+                    {selectedProject.title}
+                  </h1>
+                  <p className="text-white/80 max-w-2xl">
+                    {selectedProject.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="p-6 md:p-8">
+              <div className="grid md:grid-cols-3 gap-8">
+                {/* Main Content - 2/3 width on desktop */}
+                <div className="md:col-span-2 space-y-8">
+                  {/* Overview Section */}
+                  <div>
+                    <h2 className="text-2xl font-bold font-display mb-4">Project Overview</h2>
+                    <p className="text-gray-700">{selectedProject.fullDescription}</p>
+                  </div>
+                  
+                  {/* Challenge Section */}
+                  <div>
+                    <h2 className="text-2xl font-bold font-display mb-4">The Challenge</h2>
+                    <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r">
+                      <p className="text-gray-700">{selectedProject.challenge}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Solution Section */}
+                  <div>
+                    <h2 className="text-2xl font-bold font-display mb-4">Our Solution</h2>
+                    <p className="text-gray-700">{selectedProject.solution}</p>
+                  </div>
                 </div>
                 
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 font-display">Challenge</h3>
-                  <p className="text-gray-700">{selectedProject.challenge}</p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 font-display">Solution</h3>
-                  <p className="text-gray-700">{selectedProject.solution}</p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 font-display">Results</h3>
-                  <ul className="list-disc pl-5 space-y-1 text-gray-700">
-                    {selectedProject.results.map((result, index) => (
-                      <li key={index}>{result}</li>
-                    ))}
-                  </ul>
+                {/* Sidebar - 1/3 width on desktop */}
+                <div className="space-y-8">
+                  {/* Results Section */}
+                  <div className="bg-blue-50 p-6 rounded-lg">
+                    <h2 className="text-xl font-bold font-display mb-4">Key Results</h2>
+                    <ul className="space-y-3">
+                      {selectedProject.results.map((result, index) => (
+                        <li key={index} className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-blue-600 mr-2 shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{result}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* Project Details */}
+                  <div className="border border-gray-200 rounded-lg p-6">
+                    <h2 className="text-xl font-bold font-display mb-4">Project Details</h2>
+                    <div className="space-y-3">
+                      <div>
+                        <span className="text-sm text-gray-500 block">Category</span>
+                        <span className="font-medium">{selectedProject.category}</span>
+                      </div>
+                      <Separator />
+                      <div>
+                        <span className="text-sm text-gray-500 block">Timeline</span>
+                        <span className="font-medium">8 weeks</span>
+                      </div>
+                      <Separator />
+                      <div>
+                        <span className="text-sm text-gray-500 block">Technologies</span>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          <Badge variant="outline">React</Badge>
+                          <Badge variant="outline">Tailwind</Badge>
+                          <Badge variant="outline">Node.js</Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              <div className="mt-8 flex justify-end">
-                <Button onClick={closeProjectDetails}>Close</Button>
+              {/* Call to Action */}
+              <div className="mt-12 border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-bold font-display">Interested in a similar solution?</h3>
+                  <p className="text-gray-600">Let's discuss how we can help with your project</p>
+                </div>
+                <div className="flex gap-4">
+                  <Button variant="outline" onClick={closeProjectDetails}>
+                    Close
+                  </Button>
+                  <Button>
+                    Contact Us
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           </DialogContent>
