@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, Phone, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, Linkedin, Instagram, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -15,11 +15,11 @@ const Footer = () => {
               Creating beautiful digital experiences and powerful software solutions for businesses worldwide.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white">
+              <a href="#" className="text-gray-300 hover:text-white bg-gray-800 p-2 rounded-full transition-colors">
                 <Linkedin size={20} />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="#" className="text-gray-300 hover:text-white">
+              <a href="#" className="text-gray-300 hover:text-white bg-gray-800 p-2 rounded-full transition-colors">
                 <Instagram size={20} />
                 <span className="sr-only">Instagram</span>
               </a>
@@ -28,64 +28,103 @@ const Footer = () => {
           
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Services</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">UI/UX Design</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>UI/UX Design</span>
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Web Development</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>Web Development</span>
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Mobile Apps</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>Mobile Apps</span>
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Automation Solutions</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>Automation Solutions</span>
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Digital Consulting</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>Digital Consulting</span>
+                </a>
               </li>
             </ul>
           </div>
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a>
+                <a href="#about" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>About Us</span>
+                </a>
               </li>
               <li>
-                <a href="#projects" className="text-gray-300 hover:text-white transition-colors">Our Work</a>
+                <a href="#projects" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>Our Work</span>
+                </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
+                <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>Testimonials</span>
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Careers</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>Careers</span>
+                </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
+                <a href="#contact" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                  <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <span>Contact</span>
+                </a>
               </li>
             </ul>
           </div>
           
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <address className="not-italic">
-              <p className="flex items-center gap-2 text-gray-300 mb-2">
-                <Mail size={18} className="flex-shrink-0" />
-                <span>hello@pixelcraft.studio</span>
-              </p>
-              <p className="flex items-center gap-2 text-gray-300 mb-2">
-                <Phone size={18} className="flex-shrink-0" />
-                <span>+1 (555) 123-4567</span>
-              </p>
-              <p className="text-gray-300 mt-4">
-                123 Innovation Drive<br />
-                San Francisco, CA 94103
-              </p>
+            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Contact Us</h3>
+            <address className="not-italic space-y-4">
+              <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors">
+                <div className="bg-gray-800 p-2 rounded-full group-hover:bg-blue-600 transition-colors">
+                  <Mail size={18} className="flex-shrink-0" />
+                </div>
+                <span className="text-sm">hello@pixelcraft.studio</span>
+              </div>
+              <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors">
+                <div className="bg-gray-800 p-2 rounded-full group-hover:bg-blue-600 transition-colors">
+                  <Phone size={18} className="flex-shrink-0" />
+                </div>
+                <span className="text-sm">+1 (555) 123-4567</span>
+              </div>
+              <div className="flex items-start gap-3 text-gray-300 group hover:text-white transition-colors">
+                <div className="bg-gray-800 p-2 rounded-full group-hover:bg-blue-600 transition-colors">
+                  <MapPin size={18} className="flex-shrink-0" />
+                </div>
+                <div className="text-sm">
+                  123 Innovation Drive<br />
+                  San Francisco, CA 94103
+                </div>
+              </div>
             </address>
           </div>
         </div>
@@ -97,9 +136,9 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} PixelCraft Studio. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm">Privacy Policy</Link>
-            <Link to="/terms-conditions" className="text-gray-400 hover:text-white text-sm">Terms of Service</Link>
-            <Link to="/cookie-policy" className="text-gray-400 hover:text-white text-sm">Cookie Policy</Link>
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+            <Link to="/terms-conditions" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
+            <Link to="/cookie-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>

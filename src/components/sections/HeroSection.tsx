@@ -57,22 +57,28 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
           
-          {/* Hero Image */}
+          {/* Hero Image with Perspective */}
           <motion.div 
             className="order-1 lg:order-2 flex justify-center"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="relative max-w-md">
+            <div className="relative mt-20 lg:mt-10 perspective-container">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl opacity-30 blur-xl"></div>
-              <div className="relative bg-white p-2 rounded-lg shadow-xl">
+              <div className="relative transform perspective-image">
                 <img 
                   src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
                   alt="Digital workspace" 
-                  className="w-full h-auto rounded-md"
-                  style={{ maxHeight: '400px', objectFit: 'cover' }}
+                  className="w-full h-auto rounded-md shadow-2xl"
+                  style={{ 
+                    maxHeight: '400px', 
+                    objectFit: 'cover',
+                    transform: 'perspective(1000px) rotateX(5deg) rotateY(-15deg)',
+                    boxShadow: '0 30px 60px -10px rgba(0, 0, 0, 0.3), 0 18px 36px -18px rgba(0, 0, 0, 0.33)'
+                  }}
                 />
+                <div className="absolute inset-0 rounded-md ring-1 ring-inset ring-white/10"></div>
               </div>
             </div>
           </motion.div>

@@ -1,9 +1,16 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const ServicesSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
   const services = [
     {
       id: 1,
@@ -36,7 +43,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-gray-50">
+    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-white" ref={containerRef}>
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -51,24 +58,59 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-[1.02]"
-            >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform hover:scale-105"
-                />
-              </div>
-              <div className="p-6 md:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Left side - Fixed image that changes */}
+          <div className="relative h-[600px] lg:sticky top-24 self-start">
+            <div className="relative h-full w-full overflow-hidden rounded-xl">
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  className="absolute inset-0"
+                  style={{
+                    opacity: useTransform(
+                      scrollYProgress,
+                      [index / services.length, (index + 0.8) / services.length],
+                      [0, 1]
+                    ),
+                    zIndex: services.length - index
+                  }}
+                >
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover rounded-xl"
+                    style={{
+                      transform: 'perspective(1000px) rotateY(5deg)',
+                      boxShadow: '0 30px 60px -10px rgba(0, 0, 0, 0.3), 0 18px 36px -18px rgba(0, 0, 0, 0.33)'
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl"></div>
+                  <div className="absolute bottom-6 left-6 text-white">
+                    <span className="text-xl font-bold font-display">{service.title}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right side - Scrollable content */}
+          <div className="space-y-12 lg:space-y-24 lg:pl-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-lg overflow-hidden shadow-lg p-8 transition-transform hover:scale-[1.02]"
+              >
+                <div className="lg:hidden h-48 -mx-8 -mt-8 mb-6 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="text-2xl font-bold mb-3 font-display">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 
@@ -88,9 +130,9 @@ const ServicesSection = () => {
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -88,29 +88,33 @@ const ProjectsSection = () => {
               {projects.map((project) => (
                 <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/2">
                   <div className="p-2">
-                    <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
-                      <div className="h-48 overflow-hidden">
+                    <Card className="h-full overflow-hidden transition-all hover:shadow-xl group">
+                      <div className="h-52 overflow-hidden relative">
                         <img 
                           src={project.image} 
                           alt={project.title}
-                          className="w-full h-full object-cover transition-transform hover:scale-105"
+                          className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-x-0 bottom-0 p-4 text-white transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                          <p className="text-sm font-medium">{project.description}</p>
+                        </div>
                       </div>
-                      <CardHeader>
+                      <CardHeader className="relative z-10 bg-white">
                         <div className="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full mb-2">
                           {project.category}
                         </div>
-                        <CardTitle>{project.title}</CardTitle>
-                        <CardDescription>{project.description}</CardDescription>
+                        <CardTitle className="group-hover:text-blue-600 transition-colors">{project.title}</CardTitle>
+                        <CardDescription className="line-clamp-2">{project.description}</CardDescription>
                       </CardHeader>
-                      <CardFooter>
+                      <CardFooter className="bg-white pt-0 pb-4">
                         <Button 
                           variant="ghost" 
-                          className="p-0 h-auto text-blue-600 hover:text-blue-800 hover:bg-transparent"
+                          className="p-0 h-auto text-blue-600 hover:text-blue-800 hover:bg-transparent group"
                           onClick={() => openProjectDetails(project)}
                         >
                           View Case Study
-                          <ArrowRight className="ml-1 h-4 w-4" />
+                          <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Button>
                       </CardFooter>
                     </Card>
@@ -135,29 +139,33 @@ const ProjectsSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
-                <div className="h-48 overflow-hidden">
+              <Card className="h-full overflow-hidden transition-all hover:shadow-xl group">
+                <div className="h-52 overflow-hidden relative">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform hover:scale-105"
+                    className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-x-0 bottom-0 p-4 text-white transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <p className="text-sm font-medium">{project.description}</p>
+                  </div>
                 </div>
-                <CardHeader>
+                <CardHeader className="relative z-10 bg-white">
                   <div className="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full mb-2">
                     {project.category}
                   </div>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardTitle className="group-hover:text-blue-600 transition-colors">{project.title}</CardTitle>
+                  <CardDescription className="line-clamp-2">{project.description}</CardDescription>
                 </CardHeader>
-                <CardFooter>
+                <CardFooter className="bg-white pt-0 pb-4">
                   <Button 
                     variant="ghost" 
-                    className="p-0 h-auto text-blue-600 hover:text-blue-800 hover:bg-transparent"
+                    className="p-0 h-auto text-blue-600 hover:text-blue-800 hover:bg-transparent group"
                     onClick={() => openProjectDetails(project)}
                   >
                     View Case Study
-                    <ArrowRight className="ml-1 h-4 w-4" />
+                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </CardFooter>
               </Card>
@@ -166,9 +174,9 @@ const ProjectsSection = () => {
         </div>
 
         <div className="text-center">
-          <Button variant="outline" className="rounded-md">
+          <Button variant="outline" className="rounded-md group">
             View All Projects
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
       </div>
@@ -186,7 +194,7 @@ const ProjectsSection = () => {
               <img 
                 src={selectedProject.image} 
                 alt={selectedProject.title}
-                className="w-full h-64 object-cover rounded-lg mb-6"
+                className="w-full h-64 object-cover rounded-lg mb-6 shadow-md"
               />
               
               <div className="space-y-6">
