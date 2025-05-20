@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Mail, Phone, Linkedin, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -52,19 +53,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a>
+                <a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Our Work</a>
+                <a href="#projects" className="text-gray-300 hover:text-white transition-colors">Our Work</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
+                <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-white transition-colors">Careers</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Contact</a>
+                <a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a>
               </li>
             </ul>
           </div>
@@ -95,9 +96,10 @@ const Footer = () => {
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} PixelCraft Studio. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+          <div className="flex flex-wrap justify-center gap-6">
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm">Privacy Policy</Link>
+            <Link to="/terms-conditions" className="text-gray-400 hover:text-white text-sm">Terms of Service</Link>
+            <Link to="/cookie-policy" className="text-gray-400 hover:text-white text-sm">Cookie Policy</Link>
           </div>
         </div>
       </div>
