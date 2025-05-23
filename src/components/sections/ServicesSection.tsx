@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 const ServicesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -58,7 +57,51 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        {/* Mobile layout - each service in its own card */}
+        <div className="lg:hidden space-y-8">
+          {services.map((service) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-lg overflow-hidden shadow-lg"
+            >
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3 font-display">{service.title}</h3>
+                <p className="text-gray-600 mb-6">{service.description}</p>
+                
+                <ul className="space-y-2 mb-6">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-gray-700">
+                      <span className="mr-2 text-blue-600">•</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                
+                <a 
+                  href="#contact" 
+                  className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop layout - split screen with fixed image and scrollable content */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left side - Fixed image that changes */}
           <div className="relative h-[600px] lg:sticky top-24 self-start">
             <div className="relative h-full w-full overflow-hidden rounded-xl">
@@ -104,13 +147,6 @@ const ServicesSection = () => {
                 transition={{ duration: 0.5 }}
                 className="bg-white rounded-lg overflow-hidden shadow-lg p-8 transition-transform hover:scale-[1.02]"
               >
-                <div className="lg:hidden h-48 -mx-8 -mt-8 mb-6 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
                 <h3 className="text-2xl font-bold mb-3 font-display">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 
