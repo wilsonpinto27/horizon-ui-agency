@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +36,33 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    if (location.pathname === '/') {
+      // If we're on the homepage, scroll to the section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to homepage with the hash
+      navigate(`/${href}`);
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      // If we're on the homepage, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // If we're on another page, navigate to homepage
+      navigate('/');
+    }
+  };
+
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -43,7 +73,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="flex items-center">
+            <a href="#home" onClick={handleLogoClick} className="flex items-center">
               <span className="text-2xl font-bold font-display text-white">PixelCraft</span>
             </a>
           </div>
@@ -54,7 +84,8 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                onClick={(e) => handleNavClick(link.href, e)}
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors cursor-pointer"
               >
                 {link.name}
               </a>
@@ -99,8 +130,8 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleNavClick(link.href, e)}
+                className="block py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md cursor-pointer"
               >
                 {link.name}
               </a>

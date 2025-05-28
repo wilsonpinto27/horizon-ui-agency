@@ -1,9 +1,27 @@
 
 import React from 'react';
 import { Mail, Phone, Linkedin, Instagram, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSectionClick = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (location.pathname === '/') {
+      // If we're on the homepage, scroll to the section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to homepage with the hash
+      navigate(`/${href}`);
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -68,19 +86,31 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#about" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                <a 
+                  href="#about" 
+                  onClick={(e) => handleSectionClick('#about', e)}
+                  className="text-gray-300 hover:text-white transition-colors flex items-center group cursor-pointer"
+                >
                   <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   <span>About Us</span>
                 </a>
               </li>
               <li>
-                <a href="#projects" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                <a 
+                  href="#projects" 
+                  onClick={(e) => handleSectionClick('#projects', e)}
+                  className="text-gray-300 hover:text-white transition-colors flex items-center group cursor-pointer"
+                >
                   <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   <span>Our Work</span>
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                <a 
+                  href="#testimonials" 
+                  onClick={(e) => handleSectionClick('#testimonials', e)}
+                  className="text-gray-300 hover:text-white transition-colors flex items-center group cursor-pointer"
+                >
                   <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   <span>Testimonials</span>
                 </a>
@@ -92,7 +122,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-300 hover:text-white transition-colors flex items-center group">
+                <a 
+                  href="#contact" 
+                  onClick={(e) => handleSectionClick('#contact', e)}
+                  className="text-gray-300 hover:text-white transition-colors flex items-center group cursor-pointer"
+                >
                   <span className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   <span>Contact</span>
                 </a>
