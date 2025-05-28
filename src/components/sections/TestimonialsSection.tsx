@@ -56,18 +56,18 @@ const TestimonialsSection = () => {
 
   const renderStars = (rating) => {
     return Array(5).fill(0).map((_, i) => (
-      <svg key={i} className={`w-4 h-4 ${i < rating ? 'text-amber-400' : 'text-gray-300'}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <svg key={i} className={`w-4 h-4 ${i < rating ? 'text-amber-400' : 'text-gray-600'}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
         <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
       </svg>
     ));
   };
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-gradient-to-br from-blue-50 via-amber-50 to-white relative">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
-        <div className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 bg-blue-100 rounded-full -mr-32 -mb-32"></div>
-        <div className="absolute left-20 top-40 w-20 h-20 bg-amber-200 rounded-full"></div>
-        <div className="absolute right-1/4 top-1/4 w-32 h-32 bg-purple-100 rounded-full"></div>
+    <section id="testimonials" className="py-16 md:py-24 bg-gray-800 relative">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
+        <div className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 bg-blue-500 rounded-full -mr-32 -mb-32"></div>
+        <div className="absolute left-20 top-40 w-20 h-20 bg-amber-500 rounded-full"></div>
+        <div className="absolute right-1/4 top-1/4 w-32 h-32 bg-purple-500 rounded-full"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -78,8 +78,8 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">What Our Clients Say</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4 text-white">What Our Clients Say</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Read about the experiences of businesses we've worked with and the impact of our solutions.
           </p>
         </motion.div>
@@ -95,8 +95,8 @@ const TestimonialsSection = () => {
               ))}
             </CarouselContent>
             <div className="flex justify-center gap-2 mt-4">
-              <CarouselPrevious className="static transform-none mx-1" />
-              <CarouselNext className="static transform-none mx-1" />
+              <CarouselPrevious className="static transform-none mx-1 bg-gray-700 border-gray-600 text-white hover:bg-gray-600" />
+              <CarouselNext className="static transform-none mx-1 bg-gray-700 border-gray-600 text-white hover:bg-gray-600" />
             </div>
           </Carousel>
         </div>
@@ -124,21 +124,21 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Card className="bg-gradient-to-br from-blue-50 to-white border-0 shadow-lg overflow-hidden">
+          <Card className="bg-gray-700 border-gray-600 shadow-lg overflow-hidden">
             <CardContent className="p-8 md:p-10 relative">
-              <div className="absolute -top-6 -left-6 text-8xl text-blue-200 opacity-50 font-serif">❝</div>
+              <div className="absolute -top-6 -left-6 text-8xl text-blue-400 opacity-30 font-serif">❝</div>
               <div className="relative z-10">
-                <p className="text-xl md:text-2xl text-gray-800 mb-6 italic font-light leading-relaxed">
+                <p className="text-xl md:text-2xl text-gray-200 mb-6 italic font-light leading-relaxed">
                   "The team at PixelCraft didn't just deliver what we asked for – they anticipated needs we hadn't even recognized yet. The strategic approach they brought to our digital transformation has positioned us as a leader in our industry. Without question, working with them has been one of our best business decisions."
                 </p>
                 <div className="flex items-center">
-                  <Avatar className="h-14 w-14 border-2 border-white shadow-md">
+                  <Avatar className="h-14 w-14 border-2 border-gray-600 shadow-md">
                     <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3" />
                     <AvatarFallback>JD</AvatarFallback>
                   </Avatar>
                   <div className="ml-4">
-                    <div className="font-semibold text-lg">James Donovan</div>
-                    <div className="text-gray-600">CTO, Enterprise Solutions</div>
+                    <div className="font-semibold text-lg text-white">James Donovan</div>
+                    <div className="text-gray-300">CTO, Enterprise Solutions</div>
                     <div className="flex mt-1">
                       {renderStars(5)}
                     </div>
@@ -155,22 +155,22 @@ const TestimonialsSection = () => {
 
 // Testimonial Card Component
 const TestimonialCard = ({ testimonial, renderStars }) => (
-  <Card className="h-full bg-white border-0 shadow-md">
+  <Card className="h-full bg-gray-700 border-gray-600 shadow-md">
     <CardContent className="p-6 md:p-8">
       <div className="flex mb-4">
         {renderStars(testimonial.rating)}
       </div>
-      <p className="text-gray-700 mb-6">
+      <p className="text-gray-200 mb-6">
         "{testimonial.content}"
       </p>
       <div className="flex items-center">
-        <Avatar className="h-10 w-10 border-2 border-white shadow-sm">
+        <Avatar className="h-10 w-10 border-2 border-gray-600 shadow-sm">
           <AvatarImage src={testimonial.avatar} />
           <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
         </Avatar>
         <div className="ml-3">
-          <p className="font-semibold">{testimonial.author}</p>
-          <p className="text-sm text-gray-600">
+          <p className="font-semibold text-white">{testimonial.author}</p>
+          <p className="text-sm text-gray-300">
             {testimonial.position}, {testimonial.company}
           </p>
         </div>
