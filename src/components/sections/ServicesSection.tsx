@@ -1,10 +1,11 @@
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const ServicesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -41,8 +42,33 @@ const ServicesSection = () => {
     },
   ];
 
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = parseInt(entry.target.getAttribute('data-service-index') || '0');
+          setActiveServiceIndex(index);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all service elements in desktop layout
+    const serviceElements = document.querySelectorAll('[data-service-index]');
+    serviceElements.forEach((element) => observer.observe(element));
+
+    return () => {
+      serviceElements.forEach((element) => observer.unobserve(element));
+    };
+  }, []);
+
   return (
-    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-gray-800 to-gray-900" ref={containerRef}>
+    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-gray-800 to-gray-900 relative" ref={containerRef}>
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -109,14 +135,11 @@ const ServicesSection = () => {
                 <motion.div
                   key={service.id}
                   className="absolute inset-0"
-                  style={{
-                    opacity: useTransform(
-                      scrollYProgress,
-                      [index / services.length, (index + 0.8) / services.length],
-                      [0, 1]
-                    ),
-                    zIndex: services.length - index
+                  animate={{
+                    opacity: activeServiceIndex === index ? 1 : 0,
+                    zIndex: activeServiceIndex === index ? services.length : services.length - index
                   }}
+                  transition={{ duration: 0.5 }}
                 >
                   <img 
                     src={service.image} 
@@ -141,6 +164,7 @@ const ServicesSection = () => {
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
+                data-service-index={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
