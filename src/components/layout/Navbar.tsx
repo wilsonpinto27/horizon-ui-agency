@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-800' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,7 +44,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#home" className="flex items-center">
-              <span className="text-2xl font-bold font-display text-gray-900">PixelCraft</span>
+              <span className="text-2xl font-bold font-display text-white">PixelCraft</span>
             </a>
           </div>
           
@@ -54,7 +54,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-black transition-colors"
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
               >
                 {link.name}
               </a>
@@ -63,7 +63,7 @@ const Navbar = () => {
           
           {/* CTA Button (Desktop) */}
           <div className="hidden md:flex">
-            <Button size="sm" className="rounded-md">
+            <Button size="sm" className="rounded-md bg-blue-600 hover:bg-blue-700 text-white">
               Get Started
             </Button>
           </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600"
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={() => setIsOpen(!isOpen)}
@@ -94,18 +94,18 @@ const Navbar = () => {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="py-4 px-6 space-y-1 bg-white shadow-lg">
+          <div className="py-4 px-6 space-y-1 bg-gray-900 shadow-lg border-t border-gray-800">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>
             ))}
-            <Button className="w-full mt-4 rounded-md">
+            <Button className="w-full mt-4 rounded-md bg-blue-600 hover:bg-blue-700 text-white">
               Get Started
             </Button>
           </div>

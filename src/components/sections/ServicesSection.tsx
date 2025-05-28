@@ -42,7 +42,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-white" ref={containerRef}>
+    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-gray-800 to-gray-900" ref={containerRef}>
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -51,8 +51,8 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4 text-white">Our Services</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We offer a comprehensive range of digital solutions to help your business thrive in the digital landscape.
           </p>
         </motion.div>
@@ -66,7 +66,7 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-lg overflow-hidden shadow-lg"
+              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-700"
             >
               <div className="h-48 overflow-hidden">
                 <img 
@@ -76,13 +76,13 @@ const ServicesSection = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 font-display">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold mb-3 font-display text-white">{service.title}</h3>
+                <p className="text-gray-300 mb-6">{service.description}</p>
                 
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700">
-                      <span className="mr-2 text-blue-600">•</span>
+                    <li key={idx} className="flex items-center text-gray-300">
+                      <span className="mr-2 text-blue-400">•</span>
                       {feature}
                     </li>
                   ))}
@@ -90,7 +90,7 @@ const ServicesSection = () => {
                 
                 <a 
                   href="#contact" 
-                  className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                  className="inline-flex items-center font-medium text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -145,15 +145,15 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-lg overflow-hidden shadow-lg p-8 transition-transform hover:scale-[1.02]"
+                className="bg-gray-800 rounded-lg overflow-hidden shadow-lg p-8 transition-transform hover:scale-[1.02] border border-gray-700"
               >
-                <h3 className="text-2xl font-bold mb-3 font-display">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold mb-3 font-display text-white">{service.title}</h3>
+                <p className="text-gray-300 mb-6">{service.description}</p>
                 
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700">
-                      <span className="mr-2 text-blue-600">•</span>
+                    <li key={idx} className="flex items-center text-gray-300">
+                      <span className="mr-2 text-blue-400">•</span>
                       {feature}
                     </li>
                   ))}
@@ -161,7 +161,7 @@ const ServicesSection = () => {
                 
                 <a 
                   href="#contact" 
-                  className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                  className="inline-flex items-center font-medium text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />

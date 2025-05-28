@@ -16,7 +16,7 @@ const ClientsSection = () => {
   ];
 
   return (
-    <section className="py-12 md:py-20 bg-gray-50">
+    <section className="py-12 md:py-20 bg-gray-800">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -25,7 +25,7 @@ const ClientsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-xl md:text-2xl font-medium text-gray-600 mb-2">Trusted by innovative teams worldwide</h2>
+          <h2 className="text-xl md:text-2xl font-medium text-gray-300 mb-2">Trusted by innovative teams worldwide</h2>
         </motion.div>
         
         {/* Client logo marquee */}
@@ -33,13 +33,13 @@ const ClientsSection = () => {
           <div className="flex space-x-12 animate-marquee">
             {clients.map((client) => (
               <div key={client.id} className="flex flex-shrink-0 items-center justify-center h-12 md:h-16 w-24 md:w-32 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                <div className="font-bold text-gray-500 text-xl md:text-2xl">{client.logo}</div>
+                <div className="font-bold text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">{client.logo}</div>
               </div>
             ))}
             {/* Duplicate for seamless loop */}
             {clients.map((client) => (
               <div key={`${client.id}-duplicate`} className="flex flex-shrink-0 items-center justify-center h-12 md:h-16 w-24 md:w-32 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                <div className="font-bold text-gray-500 text-xl md:text-2xl">{client.logo}</div>
+                <div className="font-bold text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">{client.logo}</div>
               </div>
             ))}
           </div>

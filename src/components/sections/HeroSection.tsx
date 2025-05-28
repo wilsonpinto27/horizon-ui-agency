@@ -6,11 +6,11 @@ import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-b from-amber-50 to-white py-20 lg:py-32">
+    <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-20 lg:py-32">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 bg-blue-100 rounded-full opacity-70 -mr-32 -mb-32"></div>
-        <div className="absolute left-20 top-40 w-20 h-20 bg-amber-200 rounded-full opacity-50"></div>
-        <div className="absolute right-1/4 top-1/4 w-32 h-32 bg-purple-100 rounded-full opacity-60"></div>
+        <div className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 bg-blue-600/20 rounded-full opacity-70 -mr-32 -mb-32"></div>
+        <div className="absolute left-20 top-40 w-20 h-20 bg-amber-500/20 rounded-full opacity-50"></div>
+        <div className="absolute right-1/4 top-1/4 w-32 h-32 bg-purple-600/20 rounded-full opacity-60"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -23,16 +23,16 @@ const HeroSection = () => {
             className="order-2 lg:order-1"
           >
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-tight mb-6 text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Turn Chaos into <span className="text-blue-600">Clarity</span>
+              Turn Chaos into <span className="text-blue-400">Clarity</span>
             </motion.h1>
             
             <motion.p 
-              className="text-xl text-gray-700 mb-8 max-w-lg"
+              className="text-xl text-gray-300 mb-8 max-w-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -46,12 +46,12 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Button size="lg" className="rounded-md">
+              <Button size="lg" className="rounded-md bg-blue-600 hover:bg-blue-700 text-white">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               
-              <Button variant="outline" size="lg" className="rounded-md">
+              <Button variant="outline" size="lg" className="rounded-md border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
                 See Our Work
               </Button>
             </motion.div>
