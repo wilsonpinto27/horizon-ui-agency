@@ -1,9 +1,9 @@
-
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { smoothScrollTo } from "@/lib/utils";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,31 +19,31 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Projects", href: "#projects" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const handleNavClick = (href: string, e: React.MouseEvent) => {
     e.preventDefault();
     setIsOpen(false);
-    
-    if (router.pathname === '/') {
+
+    if (router.pathname === "/") {
       // If we're on the homepage, scroll to the section
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
       // If we're on another page, navigate to homepage with the hash
@@ -53,30 +53,34 @@ const Navbar = () => {
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (router.pathname === '/') {
+    if (router.pathname === "/") {
       // If we're on the homepage, scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       // If we're on another page, navigate to homepage
-      router.push('/');
+      router.push("/");
     }
   };
 
   return (
-    <header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-800' : 'bg-transparent'
-      }`}
+    <header
+      className={`fixed w-full z-50 transition-all duration-100 bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-800 `}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" onClick={handleLogoClick} className="flex items-center">
-              <span className="text-2xl font-bold font-display text-white">PearFox Studio</span>
+            <a
+              href="#home"
+              onClick={handleLogoClick}
+              className="flex items-center"
+            >
+              <span className="text-2xl font-bold font-display text-white">
+                PearFox Studio
+              </span>
             </a>
           </div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
@@ -90,14 +94,18 @@ const Navbar = () => {
               </a>
             ))}
           </nav>
-          
+
           {/* CTA Button (Desktop) */}
           <div className="hidden md:flex">
-            <Button size="sm" className="rounded-md bg-blue-600 hover:bg-blue-700 text-white">
+            <Button
+              onClick={() => smoothScrollTo("#contact")}
+              size="sm"
+              className="rounded-md bg-blue-600 hover:bg-blue-700 text-white"
+            >
               Get Started
             </Button>
           </div>
-          
+
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
@@ -108,7 +116,11 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
             >
               <span className="sr-only">Open main menu</span>
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -116,11 +128,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <motion.div 
-          id="mobile-menu" 
+        <motion.div
+          id="mobile-menu"
           className="md:hidden"
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
+          animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
