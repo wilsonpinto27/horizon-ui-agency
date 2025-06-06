@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				display: ['Plus Jakarta Sans', 'sans-serif'],
+				sans: ['Roboto Flex', 'sans-serif'],
+				display: ['Roboto Flex', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
