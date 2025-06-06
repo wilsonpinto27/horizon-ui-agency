@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { smoothScrollTo } from "../../lib/utils";
 
 const HeroSection = () => {
   return (
@@ -51,6 +52,9 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Button
+               onClick={() => {
+                  smoothScrollTo("#contact")
+                }}
                 size="lg"
                 className="rounded-md bg-blue-600 hover:bg-blue-700 text-white"
               >
@@ -59,6 +63,9 @@ const HeroSection = () => {
               </Button>
 
               <Button
+                onClick={() => {
+                  smoothScrollTo("#projects")
+                }}
                 variant="outline"
                 size="lg"
                 className="rounded-md border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
