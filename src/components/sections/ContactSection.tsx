@@ -87,8 +87,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1 text-white">Email</h4>
-                  <p className="text-gray-300">hello@pixelcraft.studio</p>
-                  <p className="text-gray-300">support@pixelcraft.studio</p>
+                  <p className="text-gray-300">hello@pearfox.studio</p>
+                  <p className="text-gray-300">support@pearfox.studio</p>
                 </div>
               </div>
               

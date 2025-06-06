@@ -73,7 +73,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#home" onClick={handleLogoClick} className="flex items-center">
-              <span className="text-2xl font-bold font-display text-white">PixelCraft</span>
+              <span className="text-2xl font-bold font-display text-white">PearFox Studio</span>
             </a>
           </div>
           

@@ -26,7 +26,7 @@ const PrivacyPolicy = () => {
               <p className="text-gray-300">Last Updated: May 20, 2025</p>
               
               <p className="text-gray-300">
-                At PixelCraft Studio, we respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and disclose your personal information when you use our services or visit our website.
+                At PearFox Studio, we respect your privacy and are committed to protecting it through our compliance with this policy. This Privacy Policy describes how we collect, use, and disclose your personal information when you use our services or visit our website.
               </p>
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">1. Information We Collect</h2>
@@ -72,7 +72,7 @@ const PrivacyPolicy = () => {
                 <li>For any other purpose disclosed by us when you provide the information.</li>
                 <li>With your consent.</li>
                 <li>To comply with any court order, law, or legal process, including to respond to any government or regulatory request.</li>
-                <li>If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of PixelCraft Studio, our customers, or others.</li>
+                <li>If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of PearFox Studio, our customers, or others.</li>
               </ul>
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">5. Data Security</h2>
@@ -95,7 +95,7 @@ const PrivacyPolicy = () => {
                 To ask questions or comment about this Privacy Policy and our privacy practices, contact us at:
               </p>
               <p className="text-gray-300">
-                Email: privacy@pixelcraft.studio<br />
+                Email: privacy@pearfox.studio<br />
                 Phone: +1 (555) 123-4567<br />
                 Address: 123 Innovation Drive, San Francisco, CA 94103
               </p>
