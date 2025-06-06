@@ -68,7 +68,7 @@ const HeroSection = () => {
                 }}
                 variant="outline"
                 size="lg"
-                className="rounded-md border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
+                className="rounded-md bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
               >
                 See Our Work
               </Button>

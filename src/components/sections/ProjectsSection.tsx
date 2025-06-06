@@ -175,7 +175,7 @@ const ProjectsSection = () => {
         </div>
 
         <div className="text-center">
-          <Button variant="outline" className="rounded-md group border-gray-600 text-white hover:bg-gray-700">
+          <Button variant="outline" className="rounded-md group bg-gray-700 border-gray-600 text-white hover:bg-gray-800 hover:text-gray-200">
             View All Projects
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
