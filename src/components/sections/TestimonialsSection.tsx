@@ -9,7 +9,7 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      content: "Working with PixelCraft Studio transformed our online presence. Their team not only delivered a stunning website but also improved our user experience dramatically, resulting in a 40% increase in conversions.",
+      content: "Working with PearFox Studio transformed our online presence. Their team not only delivered a stunning website but also improved our user experience dramatically, resulting in a 40% increase in conversions.",
       author: "Sarah Johnson",
       position: "Marketing Director",
       company: "TechFlow Inc.",
@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
     },
     {
       id: 2,
-      content: "The automation solution developed by PixelCraft has saved us countless hours of manual work. Their understanding of our business needs and technical expertise is unmatched. Highly recommended!",
+      content: "The automation solution developed by PearFox has saved us countless hours of manual work. Their understanding of our business needs and technical expertise is unmatched. Highly recommended!",
       author: "Michael Chen",
       position: "Operations Manager",
       company: "Global Logistics",
@@ -27,7 +27,7 @@ const TestimonialsSection = () => {
     },
     {
       id: 3,
-      content: "From concept to launch, the PixelCraft team was professional, creative, and technically skilled. They delivered our mobile app ahead of schedule, and the user feedback has been overwhelmingly positive.",
+      content: "From concept to launch, the PearFox team was professional, creative, and technically skilled. They delivered our mobile app ahead of schedule, and the user feedback has been overwhelmingly positive.",
       author: "Rebecca Torres",
       position: "Product Owner",
       company: "HealthMate",
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
     },
     {
       id: 4,
-      content: "PixelCraft transformed our outdated website into a modern, user-friendly platform that perfectly represents our brand. Their attention to detail and commitment to quality is exceptional.",
+      content: "PearFox transformed our outdated website into a modern, user-friendly platform that perfectly represents our brand. Their attention to detail and commitment to quality is exceptional.",
       author: "David Wilson",
       position: "CEO",
       company: "Innovate Solutions",
@@ -45,7 +45,7 @@ const TestimonialsSection = () => {
     },
     {
       id: 5,
-      content: "The team at PixelCraft took the time to understand our unique challenges and delivered a custom solution that exceeded our expectations. Their ongoing support has been invaluable to our business.",
+      content: "The team at PearFox took the time to understand our unique challenges and delivered a custom solution that exceeded our expectations. Their ongoing support has been invaluable to our business.",
       author: "Jennifer Lee",
       position: "Creative Director",
       company: "Artisan Studios",
@@ -129,7 +129,7 @@ const TestimonialsSection = () => {
               <div className="absolute -top-6 -left-6 text-8xl text-blue-400 opacity-30 font-serif">❝</div>
               <div className="relative z-10">
                 <p className="text-xl md:text-2xl text-gray-200 mb-6 italic font-light leading-relaxed">
-                  "The team at PixelCraft didn't just deliver what we asked for – they anticipated needs we hadn't even recognized yet. The strategic approach they brought to our digital transformation has positioned us as a leader in our industry. Without question, working with them has been one of our best business decisions."
+                  "The team at PearFox didn't just deliver what we asked for – they anticipated needs we hadn't even recognized yet. The strategic approach they brought to our digital transformation has positioned us as a leader in our industry. Without question, working with them has been one of our best business decisions."
                 </p>
                 <div className="flex items-center">
                   <Avatar className="h-14 w-14 border-2 border-gray-600 shadow-md">

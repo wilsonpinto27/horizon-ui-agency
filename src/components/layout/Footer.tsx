@@ -1,16 +1,12 @@
 
 import React from 'react';
 import { Mail, Phone, Linkedin, Instagram, MapPin } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
   const handleSectionClick = (href: string, e: React.MouseEvent) => {
     e.preventDefault();
-    
-    if (location.pathname === '/') {
+    if (window.location.pathname === '/') {
       // If we're on the homepage, scroll to the section
       const element = document.querySelector(href);
       if (element) {
@@ -18,7 +14,7 @@ const Footer = () => {
       }
     } else {
       // If we're on another page, navigate to homepage with the hash
-      navigate(`/${href}`);
+      window.location.href = `/${href}`;
     }
   };
 
@@ -28,7 +24,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold font-display mb-4">PixelCraft</h3>
+            <h3 className="text-xl font-bold font-display mb-4">PearFox</h3>
             <p className="text-gray-300 mb-4">
               Creating beautiful digital experiences and powerful software solutions for businesses worldwide.
             </p>
@@ -142,7 +138,7 @@ const Footer = () => {
                 <div className="bg-gray-800 p-2 rounded-full group-hover:bg-blue-600 transition-colors">
                   <Mail size={18} className="flex-shrink-0" />
                 </div>
-                <span className="text-sm">hello@pixelcraft.studio</span>
+                <span className="text-sm">hello@pearfox.studio</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300 group hover:text-white transition-colors">
                 <div className="bg-gray-800 p-2 rounded-full group-hover:bg-blue-600 transition-colors">
@@ -167,12 +163,12 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} PixelCraft Studio. All rights reserved.
+            &copy; {new Date().getFullYear()} PearFox Studio. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
-            <Link to="/terms-conditions" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
-            <Link to="/cookie-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</Link>
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+            <Link href="/terms-conditions" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
+            <Link href="/cookie-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>

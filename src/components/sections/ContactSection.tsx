@@ -82,18 +82,18 @@ const ContactSection = () => {
             
             <div className="space-y-8">
               <div className="flex">
-                <div className="mr-4 bg-blue-600 p-3 rounded-full text-white">
+                <div className="mr-4 bg-blue-600 p-3 rounded-full h-12 text-white">
                   <Mail size={24} />
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1 text-white">Email</h4>
-                  <p className="text-gray-300">hello@pixelcraft.studio</p>
-                  <p className="text-gray-300">support@pixelcraft.studio</p>
+                  <p className="text-gray-300">hello@pearfox.studio</p>
+                  <p className="text-gray-300">support@pearfox.studio</p>
                 </div>
               </div>
               
               <div className="flex">
-                <div className="mr-4 bg-blue-600 p-3 rounded-full text-white">
+                <div className="h-12 mr-4 bg-blue-600 p-3 rounded-full text-white">
                   <Phone size={24} />
                 </div>
                 <div>
@@ -104,7 +104,7 @@ const ContactSection = () => {
               </div>
               
               <div className="flex">
-                <div className="mr-4 bg-blue-600 p-3 rounded-full text-white">
+                <div className="h-12 mr-4 bg-blue-600 p-3 rounded-full text-white">
                   <Building size={24} />
                 </div>
                 <div>

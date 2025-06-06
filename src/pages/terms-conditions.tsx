@@ -26,7 +26,7 @@ const TermsConditions = () => {
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">1. Agreement to Terms</h2>
               <p className="text-gray-300">
-                These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and PixelCraft Studio ("we," "us" or "our"), concerning your access to and use of our website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the "Site").
+                These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and PearFox Studio ("we," "us" or "our"), concerning your access to and use of our website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the "Site").
               </p>
               <p className="text-gray-300">
                 You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms and Conditions. If you do not agree with all of these Terms and Conditions, then you are expressly prohibited from using the Site and you must discontinue use immediately.
@@ -34,7 +34,7 @@ const TermsConditions = () => {
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">2. Services</h2>
               <p className="text-gray-300">
-                PixelCraft Studio provides web design, development, and related digital services to clients. The specific details, deliverables, timelines, and payment terms for services will be outlined in separate agreements or statements of work for each client project.
+                PearFox Studio provides web design, development, and related digital services to clients. The specific details, deliverables, timelines, and payment terms for services will be outlined in separate agreements or statements of work for each client project.
               </p>
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">3. Intellectual Property Rights</h2>
@@ -62,7 +62,7 @@ const TermsConditions = () => {
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">7. Indemnification</h2>
               <p className="text-gray-300">
-                You agree to defend, indemnify, and hold harmless PixelCraft Studio and its licensee and licensors, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses, resulting from or arising out of: (1) your use and access of the Site; or (2) your violation of these Terms and Conditions.
+                You agree to defend, indemnify, and hold harmless PearFox Studio and its licensee and licensors, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses, resulting from or arising out of: (1) your use and access of the Site; or (2) your violation of these Terms and Conditions.
               </p>
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">8. Term and Termination</h2>
@@ -72,7 +72,7 @@ const TermsConditions = () => {
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">9. Governing Law</h2>
               <p className="text-gray-300">
-                These Terms and Conditions shall be governed by and defined following the laws of [Your Country]. PixelCraft Studio and yourself irrevocably consent that the courts of [Your Country] shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.
+                These Terms and Conditions shall be governed by and defined following the laws of [Your Country]. PearFox Studio and yourself irrevocably consent that the courts of [Your Country] shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.
               </p>
               
               <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">10. Contact Us</h2>
@@ -80,7 +80,7 @@ const TermsConditions = () => {
                 If you have any questions about these Terms and Conditions, please contact us at:
               </p>
               <p className="text-gray-300">
-                Email: legal@pixelcraft.studio<br />
+                Email: legal@pearfox.studio<br />
                 Phone: +1 (555) 123-4567<br />
                 Address: 123 Innovation Drive, San Francisco, CA 94103
               </p>
