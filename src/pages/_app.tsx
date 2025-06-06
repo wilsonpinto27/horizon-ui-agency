@@ -8,7 +8,7 @@ import "@/index.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   // Ensure QueryClient is not recreated on every render
-  const queryClientRef = useRef<QueryClient>();
+  const queryClientRef = useRef<QueryClient>(undefined);
   if (!queryClientRef.current) {
     queryClientRef.current = new QueryClient();
   }
