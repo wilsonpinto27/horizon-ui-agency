@@ -3,13 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +39,7 @@ const Navbar = () => {
     e.preventDefault();
     setIsOpen(false);
     
-    if (location.pathname === '/') {
+    if (router.pathname === '/') {
       // If we're on the homepage, scroll to the section
       const element = document.querySelector(href);
       if (element) {
@@ -48,18 +47,18 @@ const Navbar = () => {
       }
     } else {
       // If we're on another page, navigate to homepage with the hash
-      navigate(`/${href}`);
+      router.push(`/${href}`);
     }
   };
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (location.pathname === '/') {
+    if (router.pathname === '/') {
       // If we're on the homepage, scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       // If we're on another page, navigate to homepage
-      navigate('/');
+      router.push('/');
     }
   };
 
