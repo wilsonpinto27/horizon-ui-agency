@@ -7,6 +7,6 @@ export function cn(...inputs: ClassValue[]) {
 
 export function smoothScrollTo(href: string) {
   const element = document.querySelector(href);
-  element.scrollIntoView({ behavior: "smooth" });
+  element!.scrollIntoView({ behavior: "smooth" });
 }
 
